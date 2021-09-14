@@ -1,0 +1,17 @@
+{
+  "name": "node-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Tan, Shiqiang",
+  "license": "MIT",
+  "dependencies": {
+    "cross-spawn": "^7.0.3",
+    "fs-extra": "^10.0.0",
+    "request": "^2.88.2"
+  },
+  "scripts": {
+    "cleanup": "node scripts/cleanup.js",
+    "extensions": "node scripts/extensions.js",
+    "download": "node scripts/download.js"
+  }
+}
