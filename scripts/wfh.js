@@ -46,7 +46,6 @@ const randomArr = (arr) => {
     let j = Math.floor(Math.random() * i--);
     [arr[j], arr[i]] = [arr[i], arr[j]];
   }
-  // console.log('random arr: ', JSON.stringify(arr));
   return [...arr];
 };
 
@@ -61,15 +60,38 @@ const gcd = (a, b) => {
   }
 };
 
+const caclTotalRandomOptions = (times, wfhSum) => {
+  let newArr = [];
+  for (let i = 0; i < times; i++) {
+    let diviation = 0;
+    let next = randomArr(options);
+    for (let j = 0; j < next.length; j++) {
+      if (newArr.length) {
+        while (diviation < wfhSum) {
+          const item = next[j];
+          const indexs = [];
+          newArr.forEach((value, k) => {
+            if (value === item) {
+              indexs.push(k);
+            }
+          });
+          const max = Math.max(...indexs);
+          diviation = newArr.length - max + j;
+          next = randomArr(next);
+        }
+      }
+    }
+    newArr = [...newArr, ...next];
+  }
+  return newArr;
+};
+
 const wfh = (wfhSum, startDate) => {
   const start = moment(startDate) || moment();
   const length = options.length;
   const num = gcd(wfhSum, length);
   const times = num / length;
-  let newArr = [];
-  for (let i = 0; i < times; i++) {
-    newArr = [...newArr, ...randomArr(options)];
-  }
+  const newArr = caclTotalRandomOptions(times, wfhSum);
   const loopTimes = newArr.length / wfhSum;
   for (let j = 0; j < loopTimes; j++) {
     let date = start;
@@ -91,4 +113,4 @@ const wfh = (wfhSum, startDate) => {
   }
 };
 
-wfh(8, '2021-11-01');
+wfh(8, '2021-11-08');
