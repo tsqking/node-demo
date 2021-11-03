@@ -76,7 +76,7 @@ const caclTotalRandomOptions = (times, wfhSum) => {
             }
           });
           const max = Math.max(...indexs);
-          diviation = newArr.length - max + j;
+          diviation = newArr.length - 1 - max + j;
           next = randomArr(next);
         }
       }
