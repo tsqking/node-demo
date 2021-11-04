@@ -52,7 +52,7 @@ const randomArr = (arr) => {
 const gcd = (a, b) => {
   let min = Math.min(a, b);
   let max = Math.max(a, b);
-  for (let i = max; i < max * min; i++) {
+  for (let i = max; i <= max * min; i++) {
     if (i % a === 0 && i % b === 0) {
       console.log('最小公倍数: ', i);
       return i;
@@ -113,4 +113,4 @@ const wfh = (wfhSum, startDate) => {
   }
 };
 
-wfh(8, '2021-11-08');
+wfh(7, '2021-11-08');
