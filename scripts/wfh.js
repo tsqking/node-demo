@@ -113,4 +113,4 @@ const wfh = (wfhSum, startDate) => {
   }
 };
 
-wfh(7, '2021-11-08');
+wfh(8, '2021-11-08');
